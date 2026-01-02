@@ -1,0 +1,83 @@
+
+/* A generic 2-column layout for Home */
+.home.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr; /* left sidebar fixed, right fluid */
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Content column padding */
+.home .content {
+  min-width: 0; /* prevent overflow */
+}
+
+/* Pagination at bottom-left */
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.pagination button {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pagination button:hover:not([disabled]) {
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.06);
+}
+
+.pagination button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .home.layout {
+    grid-template-columns: 1fr; /* stack */
+  }
+  .left-categories {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-search {
+    max-width: 100%;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Shared container, titles, muted text, & accent tokens */
+:root{
+  --accent: #111827;      /* you can change to teal: #14b8a6 or indigo: #6366f1 */
+  --accent-contrast: #ffffff;
+  --border: #e5e7eb;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+.page-title { margin: 0 0 12px; font-weight: 700; color: #111827; }
+.muted { color: #6b7280; }
+
+/* Forces grids to visually sit centered in the page width */
+.centered-grid { margin-left: auto; margin-right: auto; }
+
+/* Buttons (shared) */
+.btn { padding: 10px 14px; border-radius: 10px; font-weight: 700; border: 1px solid var(--accent); cursor: pointer; }
+.btn-primary { background: var(--accent); color: var(--accent-contrast); }
+.btn-secondary { background: #fff; color: #111827; }
+.btn:focus-visible, input:focus-visible {
+  outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 235, .35); border-color: #2563eb;
+}

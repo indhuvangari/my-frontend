@@ -1,0 +1,69 @@
+
+/* Section wrapper */
+.categories-section {
+  margin: 1rem 0 1.25rem;
+}
+
+/* Top row */
+.categories-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+.categories-header h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Grid of tiles */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: .75rem;
+}
+
+/* Tile */
+.category-tile {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: .75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow .15s ease, transform .05s ease, border-color .15s ease;
+}
+.category-tile:hover {
+  box-shadow: 0 8px 18px rgba(17,24,39,.06);
+}
+.category-tile.active {
+  border-color: #2563eb;
+  box-shadow: 0 10px 22px rgba(37,99,235,.12);
+}
+
+/* Image area */
+.tile-image {
+  aspect-ratio: 1 / 1;
+  background: #f3f4f6;
+  border-radius: .5rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.tile-image img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* Label */
+.tile-label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #111827;
+}

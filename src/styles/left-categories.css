@@ -1,0 +1,112 @@
+
+
+.left-categories {
+  position: sticky;
+  top: 64px;
+  align-self: start;
+  width: 260px;
+  min-width: 240px;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: #fff;
+  /* NEW: ensure its border stays above product shadows */
+  z-index: 2;
+  isolation: isolate; /* prevents descendants from mingling with outside stack */
+}
+
+/* Make sure items never overflow their container, keeping border clean */
+.left-cat-item {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.left-cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem; /* slightly more space */
+}
+
+.left-cat-title {
+  font-weight: 700;
+  color: #111827;
+}
+
+.left-cat-sec-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.35rem;
+}
+
+.left-cat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.left-cat-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px; /* polished rounded corners */
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.left-cat-item:hover {
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.06);
+}
+
+.left-cat-item.active {
+  border-color: #2563eb;
+  background: #eef2ff; /* whisper-blue for active state */
+  box-shadow: 0 12px 22px rgba(37, 99, 235, 0.12);
+}
+
+.left-cat-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.left-cat-divider {
+  margin: 0.75rem 0;
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.left-cat-filters {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.left-cat-filters select {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* src/styles/left-categories.css (append if needed) */
+.left-cat-icon {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  /* no extra margin needed since .left-cat-item uses gap */
+}

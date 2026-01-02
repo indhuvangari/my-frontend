@@ -1,0 +1,162 @@
+
+/* Card shell */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.07);
+  border-color: #dbeafe; /* blue-100 */
+}
+
+/* Image area: square ratio, consistent height across cards */
+.card .img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* keeps it square, no layout jump */
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  display: grid;
+  place-items: center; /* center the image nicely */
+  overflow: hidden; /* round corners clip the image */
+  border: 1px solid #f3f4f6;
+  position: relative; /* overlay heart anchor */
+}
+
+/* The product image stays contained, not stretched */
+.card .img-wrap img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Name: clamp to two lines for consistent heights */
+
+
+.card .name {
+  /* … your existing rules … */
+  display: -webkit-box;
+  overflow: hidden;
+  line-clamp: 2;             /* modern shorthand */
+  /* -webkit-line-clamp: 2;  ← leave commented if your build errors */
+  -webkit-box-orient: vertical;
+}
+
+
+
+.card .meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.card .rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #f59e0b; /* amber-500 */
+}
+
+.card .rating .rating-val {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Optional review count */
+.card .rating .rating-count {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-left: 0.15rem;
+}
+
+.card .stock {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.35rem;
+  border: 1px solid #e5e7eb;
+}
+
+.card .stock.in {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.card .stock.out {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.card .price {
+  margin: 0.25rem 0 0 0; /* tighter spacing */
+  font-weight: 700;
+  color: #111827;
+  font-variant-numeric: tabular-nums; /* stable numerals */
+}
+
+/* Actions row */
+.card .actions {
+  margin-top: auto; /* equalize card heights */
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card .btn {
+  flex: 1 1 auto;
+  padding: 0.45rem 0.65rem; /* compact density for cards */
+  font-weight: 600;
+}
+
+/* Legacy wishlist row button (if you still keep it) */
+.heart-btn.active {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+/* Floating wishlist heart on image */
+.card .wish-fab {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 6px rgba(17, 24, 39, 0.08);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.card .wish-fab:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(17, 24, 39, 0.12);
+}
+
+.card .wish-fab.active {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+/* Focus-visible rings for a11y */
+.btn:focus-visible,
+.wish-fab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  border-color: #2563eb;
+}

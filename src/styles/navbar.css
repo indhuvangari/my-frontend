@@ -1,0 +1,184 @@
+
+/* src/styles/navbar.css */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr; /* left / center / right */
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Base search input (center) */
+.nav-search {
+  width: 100%;
+  max-width: 520px;
+  padding: .45rem .75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .6rem;
+  background: #f9fafb;
+  color: #111827;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #111827;
+}
+
+.brand {
+  font-weight: 700;
+  margin-right: .5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #f9fafb;
+}
+
+.badge {
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+/* ---------- BUTTONS (updated) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  padding: .4rem .8rem;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;        /* stronger text */
+  color: #111827;          /* default text color for ghost buttons */
+  background: #fff;        /* default background */
+}
+
+.btn-ghost {
+  border-color: #e5e7eb;
+  background: #fff;
+  color: #111827;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .navbar {
+    grid-template-columns: 1fr; /* stack */
+    gap: .5rem;
+  }
+  .nav-left, .nav-right, .nav-center {
+    justify-content: space-between;
+  }
+  .nav-center {
+    order: 3;
+  }
+}
+
+/* --- Search wrap + clear button --- */
+.nav-center { display: flex; justify-content: center; }
+
+.nav-search-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Add right padding for the × button space */
+.nav-search {
+  width: 100%;
+  padding: .45rem 2rem .45rem .75rem; /* right padding for clear button */
+  border: 1px solid #e5e7eb;
+  border-radius: .6rem;
+  background: #f9fafb;
+}
+
+/* Clear × button */
+.search-clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #374151; /* gray-700 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.search-clear:hover {
+  background: #f3f4f6; /* gray-100 */
+}
+
+/* Focus styles for accessibility */
+.nav-search:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background: #fff;
+}
+
+/* Larger touch targets on mobile */
+@media (max-width: 768px) {
+  .search-clear {
+    width: 30px;
+    height: 30px;
+    right: 8px;
+  }
+  .nav-search {
+    padding-right: 2.25rem; /* adjust with larger clear button */
+  }
+}
+
+/* Optional: reduce motion where user prefers it */
+@media (prefers-reduced-motion: reduce) {
+  .nav-search, .search-clear {
+    transition: none;
+  }
+}

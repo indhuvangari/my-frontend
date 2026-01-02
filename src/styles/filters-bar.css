@@ -1,0 +1,31 @@
+
+/* src/styles/filters-bar.css */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+  padding: .5rem 0 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.filter-item input[type="text"],
+.filter-item select {
+  padding: .4rem .6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .5rem;
+}
+
+.filter-item input[type="text"] {
+  min-width: 220px;
+}
+
+.checkbox {
+  gap: .35rem;
+}

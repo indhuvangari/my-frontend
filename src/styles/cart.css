@@ -1,0 +1,146 @@
+
+.cart-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.cart-item__img {
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
+
+.cart-item__title {
+  font-weight: 600;
+}
+
+.cart-item__price {
+  color: #0b66c3;
+  font-weight: 700;
+}
+
+.cart-item__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cart-item__controls button {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-item__controls button:hover {
+  background: #f0f4ff;
+}
+
+.cart-item__remove {
+  margin-left: auto;
+  border-color: #d43f3a;
+  color: #d43f3a;
+  background: #fff5f5;
+}
+
+.cart-item__line-total {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.cart-summary {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-summary__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cart-clear {
+  border: 1px solid #d43f3a;
+  color: #d43f3a;
+  background: #fff5f5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.cart-checkout {
+  border: 1px solid #0b66c3;
+  color: #0b66c3;
+  background: #e9f2ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Make the plus button dark to emphasize "add" action */
+.btn-qty-plus {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+.btn-qty-plus:hover {
+  filter: brightness(1.05);
+}
+
+/* Center the +/- text and ensure it's visible */
+.cart-item__controls button,
+.btn-qty,
+.btn-qty-plus {
+  display: inline-flex;               /* center contents */
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;                    /* visible size */
+  line-height: 1;                     /* avoid clipping */
+  color: #111827;                     /* default dark text */
+}
+
+/* Make PLUS look like the dark button in your screenshot */
+.btn-qty-plus {
+  background: #111827;                /* near-black */
+  color: #ffffff;                     /* white text for contrast */
+  border-color: #111827;
+}
+
+/* Optional hover polish */
+.btn-qty-plus:hover {
+  filter: brightness(1.05);
+}
+
+/* Ensure no icon font overrides hide the character */
+.btn-qty-plus::before,
+.btn-qty-plus::after {
+  content: none !important;
+}
+
+/* If any parent set font-size: 0, restore it here */
+.cart-item__controls {
+  font-size: 16px;
+}
